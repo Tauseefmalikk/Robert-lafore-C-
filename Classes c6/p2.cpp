@@ -1,47 +1,31 @@
 #include<iostream>
-
 using namespace std;
-
-const char ESC = 27;
-const double toll = 0.5;
-
-class tollBoth{
+class Triangle{
     private:
-        unsigned int totalCars;
-        double totalCash;
+    float a,b,c;
     public:
-        tollBoth(){
-            totalCars = 0;
-            totalCash = 0;
-        }
-        void pay(){
-            totalCars++;
-            totalCash += toll;
-        }
-        void noPay(){
-            totalCars++;
-        }
-        void display(){
-            cout << "Total number of cars: " << totalCars << endl;
-            cout << "Total cash collected: " << totalCash << endl;
-        }
-};
+    Triangle():a(0),b(0),c(0){}
+    Triangle(float x,float y,float z):a(x),b(y),c(z){}
 
-int main(){
-    tollBoth tollboth;
-    char ch;
-    cout << "Enter 0 for each non-paying car" << endl;
-    cout << "Enter 1 for each paying car" << endl;
-    cout << "Press ESC to exit" << endl;
-    do{
-        cin >> ch;
-        if(ch == '0'){
-            tollboth.noPay();
-        }
-        if(ch == '1'){
-            tollboth.pay();
-        }
-    }while(ch != ESC);
-    tollboth.display();
-    return 0;
-}
+    void get()
+    {
+        cout << "enter the 3 sides of triangle(a,b,c)" << endl;
+        cin >> a >> b >> c;
+    }
+    float area()
+    {
+        return 0.5*a*b;
+        
+    }
+    float perimeter()
+    {
+        return a+b+c;
+    }
+
+};
+int main()
+{
+    Triangle t(1,2,4);
+   cout << t.area() << endl;
+   cout << t.perimeter();
+}    

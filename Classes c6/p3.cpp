@@ -1,46 +1,33 @@
+//Write a program to print the area of two rectangles having sides (4,5) and (5,8) respectively by 
+//creating a class named 'Rectangle' with a function named 'Area' which returns the area. Length and 
+//breadth are passed as parameters to its constructor.
 #include<iostream>
-
 using namespace std;
-
-class timee{
+class rectangle{
     private:
-        int hrs, mins, secs;
+    float a,b;
+
     public:
-        timee() : hrs(0), mins(0), secs(0){ }
-        timee(int h, int m, int s){
-            hrs = h;
-            mins = m;
-            secs = s;
-        }
-        void display() const{
-            cout << hrs << ":" << mins << ":" << secs << endl;
-        }
-        void add_time(timee t1, timee t2){
-            secs = t1.secs + t2.secs;
-            if( secs > 59 ){
-                secs -= 60; 
-                mins++; 
-            }
-            mins += t1.mins + t2.mins;
-            if( mins > 59 ){
-                mins -= 60; 
-                hrs++; 
-            }
-            hrs += t1.hrs + t2.hrs;
-        }
+    rectangle()=default;
+    rectangle(float x,float y):a(x),b(y){}
+
+    void set()
+    {
+        cout << "Enter the sides of rectangle" << endl;
+        cin >> a >> b;
+    }
+    float area()
+    {
+        return a*b;
+    }
 };
-
-int main(){
-    const timee t1(2, 49, 30);
-    const timee t2(3, 20, 15);
-    timee t3;
-
-    t3.add_time(t1, t2);
-
-    cout << "Sum of: " << endl;
-    t1.display();
-    t2.display();
-    cout << "is: ";
-    t3.display();
-    return 0;
+int main()
+{
+    rectangle r1;
+    r1.set();
+    cout << "the area of rectangle =" << r1.area() << endl;
+    rectangle a1(4,5);
+    rectangle a2(5,8);
+    cout << "the area of rectangle =" << a1.area() << endl;
+    cout << "the area of rectangle =" << a2.area() << endl;
 }

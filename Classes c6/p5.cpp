@@ -1,37 +1,42 @@
-/*
-Start with the date structure in Exercise 5 in Chapter 4 and transform it into a date
-class. Its member data should consist of three int s: month , day , and year . It should also
-have two member functions: getdate() , which allows the user to enter a date in
-12/31/02 format, and showdate() , which displays the date.
-*/
-
-
-
 #include<iostream>
-
 using namespace std;
-
-class date{
-    private:
-        int month, day, year;
-        char temp;
+class complex{
     public:
-        date():month(0),day(0),year(0){ }
-        date(int m,int d,int y):month(m),day(d),year(y){}
-        void getData(){
-            cout << "Enter date (MM/DD/YYYY): ";
-            cin >> month >> temp >> day >> temp >> year;
-        }
-        void display(){
-            cout << endl << "Date is " << month << "/" << day << "/" << year << endl;
-        }
-};
+    int real;
+    int imaginary;
+    
+    complex()
+    {
+        real=0;
+        imaginary=0;
+    }
+    complex(int r,int i):real(r),imaginary(i){}
 
-int main(){
-    date d1;
-    date d2(2,6,2022);
-    d1.getData();
-    d1.display();
-    d2.display();
-    return 0;
+    complex set()
+    {
+        cout << "enter the first complex number" << endl;
+        cin >> real >> imaginary;
+        cout << "enter the second complex number" << endl;
+        cin >> real >> imaginary;
+    }
+
+
+    complex add(complex c1,complex c2)
+    {
+        complex res;
+        res.real=c1.real+c2.real;
+        res.imaginary=c1.imaginary+c2.imaginary;
+        return res;
+    }
+};
+int main()
+{
+    complex c1(4,6);
+    cout << "first complex numbers=" << c1.real << " + i" << c1.imaginary << endl;
+    complex c2(5,6);
+    cout << "second complex numbers=" << c1.real << " + i" << c1.imaginary << endl;
+
+
+        complex c3=c3.add(c1,c2);
+        cout << "The sum of 2 complex numbers=" << c3.real << " + i" << c3.imaginary << endl;
 }

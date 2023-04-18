@@ -1,45 +1,32 @@
+//Print the average of three numbers entered by the user by creating a class named 'Average' having a function to calculate and print 
+//the average without creating any object of the Average class.
 #include<iostream>
-
 using namespace std;
-
-class employee {
-	private:
-		int emp_num;
-        float emp_comp;
-	public:
-		employee(): emp_num(0), emp_comp(0)	{	}
-		employee(int empNum, float empCom): emp_num(empNum), emp_comp(empCom){	}
-		void setData()
-		{
-			cout << "\nEnter employee Number: ";
-			cin >> emp_num;
-			cout << "Enter employee Compensation: ";
-			cin >> emp_comp;
-			cout << endl;
-		}
-		void display()
-		{
-			cout << "Employee Number: " << emp_num << endl;
-       		cout << "Employee Compensation: $" << emp_comp <<endl;
-
-		}
+class average{
+    private:
+    int a,b,c;
+    public:
+    average()=default;
+    average(int x,int y,int z):a(x),b(y),c(z){}
+    void set()
+    {
+        cout << "Enter the 3 numbers" << endl;
+        cin >> a >> b >> c;
+    }
+    int get()
+    {
+        return (a+b+c)/3;
+    }
 };
+int main()
+{
+    average a1;
+    a1.set();
+    cout << "the average of a1=" << a1.get() << endl;
+    average a2(1,2,4);
+    cout << "the average of a2=" << a2.get() << endl;
 
 
-int main() {
-	employee emp1, emp2;	
-	employee emp3(12, 34.6);
 
-	emp1.setData();	
-	emp2.setData();	
 
-	cout << "\nDetails of first employee: \n";
-	emp1.display();	
-	cout << "\nDetails of second employee: \n";
-	emp2.display();	
-	cout <<"\nDetails of third employee: \n";
-	emp3.display();
-
-	cout <<endl;
-	return 0;
 }
